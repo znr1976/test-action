@@ -23,6 +23,6 @@ jobs:
         if: steps.cache-arm-gcc.outputs.cache-hit != 'true'
         with:
             release: '10-2020-q4' # The arm-none-eabi-gcc release to use.
-            directory: ${{ env.TOOLS_PATH }}
+            directory: ${{ env.GCC_TOOLS_PATH }}
       - name: build
-        run: ${{ env.TOOLS_PATH }}/bin/arm-none-eabi-gcc -v       
+        run: ${{ env.GCC_TOOLS_PATH }}/bin/arm-none-eabi-gcc -v       
