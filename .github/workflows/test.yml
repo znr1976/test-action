@@ -25,4 +25,4 @@ jobs:
             release: '10-2020-q4' # The arm-none-eabi-gcc release to use.
             directory: ${{ env.TOOLS_PATH }}
       - name: build
-        run: find ${{ env.TOOLS_PATH }} -name arm-none-eabi-\* #/arm-none-eabi-gcc-10-2020-q4/bin/arm-none-eabi-gcc       
+        run: ${{ env.TOOLS_PATH }}/bin/arm-none-eabi-gcc -v       
