@@ -5,8 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: sam4s compilation
-      - uses: actions/checkout@v2
-      - uses: fiam/arm-none-eabi-gcc@v1
+        uses: actions/checkout@v2
+        uses: fiam/arm-none-eabi-gcc@v1
         with:
           release: '10-2020-q4' # The arm-none-eabi-gcc release to use.
-      - run: which arm-none-eabi-gcc       
+        run: which arm-none-eabi-gcc       
