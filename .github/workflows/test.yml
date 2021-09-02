@@ -23,4 +23,4 @@ jobs:
             release: '10-2020-q4' # The arm-none-eabi-gcc release to use.
             directory: $HOME/arm-none-eabi-gcc-10-2020-q4
       - name: build
-        run: which arm-none-eabi-gcc       
+        run: $HOME/arm-none-eabi-gcc-10-2020-q4/bin/arm-none-eabi-gcc       
