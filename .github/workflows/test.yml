@@ -4,9 +4,11 @@ jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - name: sam4s compilation
+      - name: checkout
         uses: actions/checkout@v2
+      - name: install arm-none-eabi
         uses: fiam/arm-none-eabi-gcc@v1
         with:
           release: '10-2020-q4' # The arm-none-eabi-gcc release to use.
+      - name: build
         run: which arm-none-eabi-gcc       
