@@ -2,6 +2,8 @@ name: test
 on: push
 jobs:
   is-this-really-working:
+    env:
+      GCC_TOOLS_PATH: tools/arm-none-eabi-gcc-10-2020-q4
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -12,7 +14,7 @@ jobs:
         id: cache-arm-gcc
         uses: actions/cache@v1
         with:
-          path: $HOME/arm-none-eabi-gcc-10-2020-q4
+          path: ${{ env.GCC_TOOLS_PATH }}
           key: ${{ runner.os }}-arm-gcc-10-2020-q4
 
       # Get the arm-non-eabi-gcc toolchain   
@@ -21,6 +23,6 @@ jobs:
         if: steps.cache-arm-gcc.outputs.cache-hit != 'true'
         with:
             release: '10-2020-q4' # The arm-none-eabi-gcc release to use.
-            directory: $HOME/arm-none-eabi-gcc-10-2020-q4
+            directory: ${{ env.TOOLS_PATH }}
       - name: build
-        run: find $HOME -name arm-none-eabi-gcc #/arm-none-eabi-gcc-10-2020-q4/bin/arm-none-eabi-gcc       
+        run: find ${{ env.TOOLS_PATH }} -name arm-none-eabi-\* #/arm-none-eabi-gcc-10-2020-q4/bin/arm-none-eabi-gcc       
