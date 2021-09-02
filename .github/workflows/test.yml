@@ -1,7 +1,7 @@
 name: test
 on: push
 jobs:
-  check-bats-version:
+  is-this-really-working:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
